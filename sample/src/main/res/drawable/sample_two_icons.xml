@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/line1"
+        >
+        <bitmap
+            android:gravity="top|left"
+            android:tint="@android:color/holo_green_dark"
+            android:src="@drawable/ic_dot" />
+    </item>
+    <item
+        android:id="@+id/line3"
+        android:left="40dp">
+        <bitmap
+            android:gravity="top|right"
+            android:tint="@android:color/holo_blue_dark"
+            android:src="@drawable/ic_dot"/>
+    </item>
+
+</layer-list>
