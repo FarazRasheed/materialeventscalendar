@@ -1,6 +1,6 @@
 # Material-Event-Calendar
 
-Material-Calendar-View is a simple and customizable calendar widget for Android based on Material Design. The widget has two funcionalities: a date picker to select dates (available as an XML widget and a dialog) and a classic calendar. The date picker can work either as a single day picker, many days picker or range picker.
+Material-Event-Calendar is a simple and customizable calendar widget for Android based on Material Design. The widget has two funcionalities: a date picker to select dates (available as an XML widget and a dialog) and a classic calendar. The date picker can work either as a single day picker, many days picker or range picker.
 
 
 ![34562830-637ddbae-f150-11e7-8004-9024fb84a883](https://user-images.githubusercontent.com/2614225/46456381-f72da200-c7ae-11e8-8284-1799fe83a1c9.png) ![device-2018-01-04-125741](https://user-images.githubusercontent.com/2614225/34562842-709a71ee-f150-11e7-966b-cbbe6169b88b.png) ![device-2018-01-04-125831](https://user-images.githubusercontent.com/2614225/34562859-7bd3e64e-f150-11e7-98f4-f00bafe846c6.png) ![device-2018-01-04-125915](https://user-images.githubusercontent.com/2614225/34562878-8f382f06-f150-11e7-97e4-5ac9babe5aa8.png) 
@@ -34,28 +34,29 @@ android {
 Make sure you have defined the **jcenter()** repository in project's **build.gradle** file:
 ```
 allprojects {
-    repositories {
-        jcenter()
-    }
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
 }
 ```
 
 Add the dependency to module's **build.gradle** file:
 ```
 dependencies {
-    implementation 'com.applandeo:material-calendar-view:1.7.0'
+    	        implementation 'com.github.FarazRasheed:materialeventscalendar:1.0.1'
 }
 ```
 or if you want to use very early version with CalendarDay support:
 ```
 dependencies {
-    implementation 'com.applandeo:material-calendar-view:1.9.0-rc03'
+    	        implementation 'com.github.FarazRasheed:materialeventscalendar:1.0.2'
 }
 ```
 
 To your **XML layout** file add:
 ```xml
-<com.applandeo.materialcalendarview.CalendarView
+<com.github.FarazRasheed:materialeventscalendar
     android:id="@+id/calendarView"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
@@ -370,77 +371,20 @@ new DatePickerBuilder(this, listener)
 
 ## Changelog
 
-#### Version 1.9.0-rc*:
-* Added customized font support
-* Added ability to set custom view for cells
-* Added ability to set first day of a week
 
-#### Version 1.8.0-rc*
-* Migrated to kotlin
-
-#### Version 1.7.0:
-* Added ability to set maximum selectable days range
-* Added more color customizations (Event label, today background)
-* Added ability to hide date picker navigation buttons
-* Added selected/focused state to calendar days (thanks [victor-accarini](https://github.com/victor-accarini))
-* Added a setEvent option for the DatePickerBuilder (thanks [victor-accarini](https://github.com/victor-accarini))
-
-#### Version 1.6.0:
-* Migration to AndroidX
-* Added ability to set highlighted days (thanks [domyn](https://github.com/domyn))
-* Added Javadocs for DatePickerBuilder (many thanks [EdricChan03](https://github.com/EdricChan03))
-
-#### Version 1.5.0:
-* Added support for events (images) in picker calendars (many thanks [thavelka](https://github.com/thavelka) for your contribution)
---> [Customization](https://github.com/Faraz /Material-Calendar-View#customization)
-* Added method which let you set selected dates programmatically --> [Setting selected dates](https://github.com/Faraz /Material-Calendar-View#setting-selected-dates)
-* Now, the first day of a week depends on device location (thanks [thavelka](https://github.com/thavelka))
-* Removed Glide dependency
-* Added support for Drawable in EventDay object (You can set any drawable you want) --> [Adding events with icons](https://github.com/Faraz /Material-Calendar-View/blob/master/README.md#adding-events-with-icons)
-* Added ability to set header colours (background, label and arrows) programmatically --> [Colors customization](https://github.com/Faraz /Material-Calendar-View#colors-customization)
-
-#### Version 1.4.0:
-* More color customization (abbreviations, calendar pages, labels colors)
-* Changed onNavigationButtonClickListeners to onCalendarPageChangeListeners
-* Added page change listeners to dialog pickers
-* Added onDayClickListener to pickers (not dialog pickers)
-* Added ability to insert list of disabled days
-
-#### Version 1.3.2:
-* Bug fixes
-
-#### Version 1.3.1:
-* Bug fixes
-
-#### Version 1.3.0:
-* Added ability to set minimum and maximum available date
-* Added "Today" button to dialog picker
-
-#### Version 1.2.0:
-* Added many days picker
-* Added range picker
-
-#### Version 1.1.1:
-* Added listeners for previous and forward arrow buttons
-
-#### Version 1.1.0:
-* Added build-in DatePicker dialog
+#### Version 1.0.2:
+* Bugs fixes
+* Update to Latest versions
 
 #### Version 1.0.1:
-* Bugs fixes
-
-#### Version 1.0.0:
 * Initial build
 
 ## Get in touch
 It would be great if you decide to use our component in your project. It’s open source, feel free. Write to us at hi@applandeo.com if you want to be listed and we will include your app in our repo. If you have any questions or suggestions just let us know.
 
-#### Apps using Material-Calendar-View:
-* [FreeQuest](https://play.google.com/store/apps/details?id=com.applandeo.freequest)
-
 ## License
 ```
-Copyright 2017, Faraz  sp. z o.o.
+Copyright 2021, Faraz  sp. z o.o.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
