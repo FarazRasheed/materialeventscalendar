@@ -380,7 +380,7 @@ new DatePickerBuilder(this, listener)
 * Initial build
 
 ## Get in touch
-It would be great if you decide to use our component in your project. It’s open source, feel free. Write to us at hi@applandeo.com if you want to be listed and we will include your app in our repo. If you have any questions or suggestions just let us know.
+It would be great if you decide to use our component in your project. It’s open source, feel free. Write to us at mfarazrasheed92@gmail.com if you want to be listed and we will include your app in our repo. If you have any questions or suggestions just let us know.
 
 ## License
 ```
