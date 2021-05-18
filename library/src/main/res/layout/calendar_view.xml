@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
+    android:background="#f5f5f5"
     android:orientation="vertical">
 
     <!-- date toolbar -->
@@ -11,7 +11,9 @@
         android:id="@+id/calendarHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/defaultColor">
+        android:background="@drawable/background_transparent"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp">
 
         <ImageButton
             android:id="@+id/previousButton"
@@ -21,7 +23,8 @@
             android:src="@drawable/ic_arrow_left"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <ImageButton
             android:id="@+id/forwardButton"
@@ -38,8 +41,9 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textColor="@color/defaultColor"
+            android:textSize="15sp"
+            android:fontFamily="@font/helvetica_neue_bold"
             app:layout_constraintLeft_toRightOf="@id/previousButton"
             app:layout_constraintRight_toLeftOf="@id/forwardButton"
             app:layout_constraintTop_toTopOf="parent" />
@@ -63,7 +67,8 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="@string/material_calendar_monday"
-            android:textColor="@color/daysLabelColor" />
+            android:fontFamily="@font/helvetica_neue_bold"
+            android:textColor="@color/daysLabelColor"/>
 
         <TextView
             android:id="@+id/tuesdayLabel"
@@ -72,6 +77,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="@string/material_calendar_tuesday"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:textColor="@color/daysLabelColor" />
 
         <TextView
@@ -81,6 +87,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="@string/material_calendar_wednesday"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:textColor="@color/daysLabelColor" />
 
         <TextView
@@ -90,6 +97,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="@string/material_calendar_thursday"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:textColor="@color/daysLabelColor" />
 
         <TextView
@@ -99,6 +107,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="@string/material_calendar_friday"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:textColor="@color/daysLabelColor" />
 
         <TextView
@@ -108,6 +117,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="@string/material_calendar_saturday"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:textColor="@color/daysLabelColor" />
 
         <TextView
@@ -117,6 +127,7 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:text="@string/material_calendar_sunday"
+            android:fontFamily="@font/helvetica_neue_bold"
             android:textColor="@color/daysLabelColor" />
     </LinearLayout>
 

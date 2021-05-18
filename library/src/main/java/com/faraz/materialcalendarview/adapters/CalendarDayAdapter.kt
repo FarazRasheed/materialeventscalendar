@@ -32,6 +32,7 @@ class CalendarDayAdapter(
 
     private val pageMonth = if (pageMonth < 0) 11 else pageMonth
     lateinit var eventLabel: TextView
+    lateinit var dayLabel: TextView
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
         val dayView = view
@@ -41,7 +42,7 @@ class CalendarDayAdapter(
 
         dayView.dayIcon?.loadIcon(day)
 
-        val dayLabel = dayView.dayLabel ?: throw InvalidCustomLayoutException
+         dayLabel = dayView.dayLabel ?: throw InvalidCustomLayoutException
          eventLabel = dayView.eventCount ?: throw InvalidCustomLayoutException
 
         setLabelColors(dayLabel, day)

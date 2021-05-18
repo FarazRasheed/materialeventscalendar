@@ -273,6 +273,7 @@ class CalendarView @JvmOverloads constructor(
     }
 
     private fun setHeaderName(calendar: Calendar, position: Int) {
+
         currentDateLabel.text = calendar.getMonthAndYearDate(context)
         callOnPageChangeListeners(position)
     }

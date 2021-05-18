@@ -18,7 +18,7 @@
 
     <item
         android:id="@+id/line3"
-        android:left="80dp">
+        android:left="70dp">
         <bitmap
             android:gravity="top|right"
             android:tint="@android:color/holo_blue_dark"

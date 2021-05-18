@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Material Calendar View</string>
     <string name="material_calendar_monday">MON</string>
-    <string name="material_calendar_tuesday">TUEe</string>
+    <string name="material_calendar_tuesday">TUE</string>
     <string name="material_calendar_wednesday">WED</string>
     <string name="material_calendar_thursday">THU</string>
     <string name="material_calendar_friday">FRI</string>

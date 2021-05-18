@@ -31,7 +31,7 @@ public final class DrawableUtils {
         Drawable drawable = ContextCompat.getDrawable(context, R.drawable.sample_three_icons);
 
         //Add padding to too large icon
-        return new InsetDrawable(drawable, 100, 0, 100, 0);
+        return new InsetDrawable(drawable, 90, 0, 90, 0);
     }
 
     public static Drawable getDayCircle(Context context, @ColorRes int borderColor, @ColorRes int fillColor) {
