@@ -38,13 +38,13 @@ class DayRowClickListener(
         }
 
         if (calendarProperties.onDayClickListener != null) {
-            onClick(day)
 
             val enabledDay = day.isBetweenMinAndMax(calendarProperties)
             if (enabledDay){
+                onClick(day)
                 view.setSelected(true)
-                selectClassicDay(adapterView, position, day)
             }
+            selectClassicDay(adapterView, position, day)
         }
 
         if (calendarProperties.selectionDisabled) return
@@ -60,27 +60,35 @@ class DayRowClickListener(
     }
 
     private fun selectClassicDay(adapterView: AdapterView<*>, position: Int, day: GregorianCalendar){
+
         if (prePos == -1){
             prePos = position
-
         }
         val viewPre = adapterView.getChildAt(prePos)
         val viewCurrent = adapterView.getChildAt(position)
 
         val dayLabelPre = viewPre.dayLabel ?: throw InvalidCustomLayoutException
         val dayLabel = viewCurrent.dayLabel ?: throw InvalidCustomLayoutException
-        dayLabel.setTextColor(Color.parseColor("#ffffff"))
 
-        if (prePos != position){
-
-            dayLabelPre.setTextColor(Color.parseColor("#3d3d3d"))
-//            if (day.isToday){
-//                Log.e("PrePos", "===>isToday"+prePos)
-//                dayLabelPre.setTextColor(Color.parseColor("#e5310e"))
-//            }else{
-//                dayLabelPre.setTextColor(Color.parseColor("#3d3d3d"))
-//            }
+        val preDay = GregorianCalendar().apply {
+            time = adapterView.getItemAtPosition(prePos) as Date
         }
+
+
+        if (day.isBetweenMinAndMax(calendarProperties) && preDay.isBetweenMinAndMax(calendarProperties)){
+            if (prePos != position ){
+                dayLabelPre.setTextColor(Color.parseColor("#3d3d3d"))
+            }
+            dayLabel.setTextColor(Color.parseColor("#ffffff"))
+        }else if (day.isBetweenMinAndMax(calendarProperties) && !preDay.isBetweenMinAndMax(calendarProperties)){
+            dayLabel.setTextColor(Color.parseColor("#ffffff"))
+
+        }else if (!day.isBetweenMinAndMax(calendarProperties) && preDay.isBetweenMinAndMax(calendarProperties)){
+            if (prePos != position ){
+                dayLabelPre.setTextColor(Color.parseColor("#3d3d3d"))
+            }
+        }
+
         prePos = position
     }
 
