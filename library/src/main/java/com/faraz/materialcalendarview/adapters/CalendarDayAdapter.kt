@@ -106,6 +106,7 @@ class CalendarDayAdapter(
         }
 
         calendarProperties.eventDays.firstOrNull { it.calendar == day }?.let { eventDay ->
+            dayIcon.visibility = View.VISIBLE
             loadImage(eventDay.imageDrawable)
             // If a day doesn't belong to current month then image is transparent
             if (!day.isCurrentMonthDay() || !day.isActiveDay()) {
@@ -118,6 +119,7 @@ class CalendarDayAdapter(
         calendarProperties.eventDays.firstOrNull { it.calendar == day }?.let { eventDay ->
             if (eventDay.count.isNotEmpty()){
                 eventLabel.text = eventDay.count
+                eventLabel.visibility = View.VISIBLE
             }else{
                 eventLabel.visibility = View.GONE
             }

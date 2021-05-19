@@ -50,7 +50,7 @@ dependencies {
 or if you want to use very early version with CalendarDay support:
 ```
 dependencies {
-    	        implementation 'com.github.FarazRasheed:materialeventscalendar:1.0.3'
+    	        implementation 'com.github.FarazRasheed:materialeventscalendar:1.0.4'
 }
 ```
 

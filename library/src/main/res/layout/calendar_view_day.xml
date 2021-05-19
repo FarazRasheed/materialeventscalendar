@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="45dp"
     android:background="@drawable/day_item_background"
     android:orientation="vertical">
 
@@ -9,28 +9,30 @@
         android:id="@+id/dayLabel"
         android:layout_width="@dimen/day_label_size_events_enabled"
         android:layout_height="@dimen/day_label_size_events_enabled"
-        android:layout_marginTop="4dp"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:textSize="14sp"/>
+        android:textSize="13sp"
+        android:fontFamily="@font/helvetica_neue"/>
 
     <ImageView
         android:id="@+id/dayIcon"
         android:layout_width="20dp"
         android:layout_height="10dp"
         android:layout_gravity="center_horizontal"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/eventCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/day_label_size_events_enabled"
+        android:layout_height="15dp"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:textSize="13sp"
-        android:letterSpacing="0.04"
-        android:lineSpacingExtra="6sp"
-        android:fontFamily="@font/helvetica_neue"/>
+        android:textSize="8sp"
+        android:text="+100"
+        android:fontFamily="@font/helvetica_neue"
+        android:visibility="gone"
+        />
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"

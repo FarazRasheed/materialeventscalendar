@@ -46,6 +46,10 @@ public class CalendarActivity extends AppCompatActivity {
         calendar2.add(Calendar.DAY_OF_MONTH, 2);
         events.add(new EventDay(calendar2, DrawableUtils.getSingleEvent(this)));
 
+
+        Calendar calendar3 = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 4);
+        events.add(new EventDay(calendar3, DrawableUtils.getThreeDots(this), "+10"));
 //        Calendar calendar1 = Calendar.getInstance();
 //        calendar1.add(Calendar.DAY_OF_MONTH, 4);
 //        events.add(new EventDay(calendar1, R.drawable.sample_three_icons));
@@ -65,7 +69,7 @@ public class CalendarActivity extends AppCompatActivity {
         CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
 
         Calendar min = Calendar.getInstance();
-        min.add(Calendar.MONTH, -1);
+        min.set(Calendar.DAY_OF_MONTH, 0);
 
         Calendar max = Calendar.getInstance();
         max.add(Calendar.MONTH, 0);
@@ -77,11 +81,14 @@ public class CalendarActivity extends AppCompatActivity {
 
 //        calendarView.setDisabledDays(getDisabledDays());
 
-        calendarView.setOnDayClickListener(eventDay ->
-                Toast.makeText(getApplicationContext(),
-                        eventDay.getCalendar().getTime().toString() + " "
-                                + eventDay.isEnabled(),
-                        Toast.LENGTH_SHORT).show());
+        calendarView.setOnDayClickListener(eventDay -> {
+                    if(eventDay.isEnabled()){
+                        Toast.makeText(getApplicationContext(),
+                                eventDay.getCalendar().getTime().toString() + " "
+                                        + eventDay.isEnabled(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+        });
 
         Button setDateButton = (Button) findViewById(R.id.setDateButton);
         setDateButton.setOnClickListener(v -> {
@@ -104,13 +111,13 @@ public class CalendarActivity extends AppCompatActivity {
 
     private List<Calendar> getDisabledDays() {
         Calendar firstDisabled = DateUtils.getCalendar();
-        firstDisabled.add(Calendar.DAY_OF_MONTH, 2);
+        firstDisabled.add(Calendar.DAY_OF_MONTH-1, 20);
 
         Calendar secondDisabled = DateUtils.getCalendar();
-        secondDisabled.add(Calendar.DAY_OF_MONTH, 1);
+        secondDisabled.add(Calendar.DAY_OF_MONTH-1, 21);
 
         Calendar thirdDisabled = DateUtils.getCalendar();
-        thirdDisabled.add(Calendar.DAY_OF_MONTH, 18);
+        thirdDisabled.add(Calendar.DAY_OF_MONTH-1, 22);
 
         List<Calendar> calendars = new ArrayList<>();
         calendars.add(firstDisabled);

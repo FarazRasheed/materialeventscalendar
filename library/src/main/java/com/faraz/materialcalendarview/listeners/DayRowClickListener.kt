@@ -1,5 +1,7 @@
 package com.faraz.materialcalendarview.listeners
 
+import android.graphics.Color
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
@@ -8,8 +10,10 @@ import com.faraz.materialcalendarview.CalendarView
 import com.faraz.materialcalendarview.EventDay
 import com.faraz.materialcalendarview.R
 import com.faraz.materialcalendarview.adapters.CalendarPageAdapter
+import com.faraz.materialcalendarview.exceptions.InvalidCustomLayoutException
 import com.faraz.materialcalendarview.getDatesRange
 import com.faraz.materialcalendarview.utils.*
+import kotlinx.android.synthetic.main.calendar_view_day.view.*
 import java.util.*
 
 /**
@@ -24,6 +28,8 @@ class DayRowClickListener(
         pageMonth: Int
 ) : OnItemClickListener {
 
+    var prePos: Int = -1;
+
     private val pageMonth = if (pageMonth < 0) 11 else pageMonth
 
     override fun onItemClick(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -33,6 +39,12 @@ class DayRowClickListener(
 
         if (calendarProperties.onDayClickListener != null) {
             onClick(day)
+
+            val enabledDay = day.isBetweenMinAndMax(calendarProperties)
+            if (enabledDay){
+                view.setSelected(true)
+            }
+            selectClassicDay(adapterView, position, day)
         }
 
         if (calendarProperties.selectionDisabled) return
@@ -41,8 +53,35 @@ class DayRowClickListener(
             CalendarView.ONE_DAY_PICKER -> selectOneDay(view, day)
             CalendarView.MANY_DAYS_PICKER -> selectManyDays(view, day)
             CalendarView.RANGE_PICKER -> selectRange(view, day)
-            CalendarView.CLASSIC -> calendarPageAdapter.selectedDay = SelectedDay(day, view)
+            CalendarView.CLASSIC -> SelectedDay(day, view)
         }
+
+
+    }
+
+    private fun selectClassicDay(adapterView: AdapterView<*>, position: Int, day: GregorianCalendar){
+        if (prePos == -1){
+            prePos = position
+
+        }
+        val viewPre = adapterView.getChildAt(prePos)
+        val viewCurrent = adapterView.getChildAt(position)
+
+        val dayLabelPre = viewPre.dayLabel ?: throw InvalidCustomLayoutException
+        val dayLabel = viewCurrent.dayLabel ?: throw InvalidCustomLayoutException
+        dayLabel.setTextColor(Color.parseColor("#ffffff"))
+
+        if (prePos != position){
+
+            dayLabelPre.setTextColor(Color.parseColor("#3d3d3d"))
+//            if (day.isToday){
+//                Log.e("PrePos", "===>isToday"+prePos)
+//                dayLabelPre.setTextColor(Color.parseColor("#e5310e"))
+//            }else{
+//                dayLabelPre.setTextColor(Color.parseColor("#3d3d3d"))
+//            }
+        }
+        prePos = position
     }
 
     private fun selectOneDay(view: View, day: Calendar) {
@@ -149,7 +188,7 @@ class DayRowClickListener(
 
     private fun callOnClickListener(eventDay: EventDay) {
         val enabledDay = calendarProperties.disabledDays.contains(eventDay.calendar)
-                || !eventDay.calendar.isBetweenMinAndMax(calendarProperties)
+                || eventDay.calendar.isBetweenMinAndMax(calendarProperties)
         eventDay.isEnabled = enabledDay
         calendarProperties.onDayClickListener?.onDayClick(eventDay)
     }

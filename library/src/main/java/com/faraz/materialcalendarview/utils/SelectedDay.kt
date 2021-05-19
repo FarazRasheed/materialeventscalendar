@@ -30,4 +30,8 @@ data class SelectedDay @JvmOverloads constructor(
             this.get(Calendar.DAY_OF_MONTH) == calendar.get(Calendar.DAY_OF_MONTH) &&
                     this.get(Calendar.MONTH) == calendar.get(Calendar.MONTH) &&
                     this.get(Calendar.YEAR) == calendar.get(Calendar.YEAR)
+
+    private fun setDayColor(){
+
+    }
 }

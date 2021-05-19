@@ -29,7 +29,6 @@ public final class DrawableUtils {
 
     public static Drawable getThreeDots(Context context) {
         Drawable drawable = ContextCompat.getDrawable(context, R.drawable.sample_three_icons);
-
         //Add padding to too large icon
         return new InsetDrawable(drawable, 90, 0, 90, 0);
     }
