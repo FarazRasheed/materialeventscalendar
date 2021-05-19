@@ -43,8 +43,8 @@ class DayRowClickListener(
             val enabledDay = day.isBetweenMinAndMax(calendarProperties)
             if (enabledDay){
                 view.setSelected(true)
+                selectClassicDay(adapterView, position, day)
             }
-            selectClassicDay(adapterView, position, day)
         }
 
         if (calendarProperties.selectionDisabled) return
