@@ -36,4 +36,5 @@ dependencies {
     implementation 'com.annimon:stream:1.2.1'
     testImplementation 'junit:junit:4.12'
     implementation project(path: ':library')
+
 }

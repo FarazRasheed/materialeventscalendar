@@ -119,7 +119,7 @@ class CalendarView @JvmOverloads constructor(
         forwardButtonSrc = typedArray.getDrawable(R.styleable.CalendarView_forwardButtonSrc)
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            typeface = typedArray.getFont(R.styleable.CalendarView_typeface)
+            typeface = typedArray.getFont(R.styleable.CalendarView_typefaceed)
             todayTypeface = typedArray.getFont(R.styleable.CalendarView_todayTypeface)
         }
     }
